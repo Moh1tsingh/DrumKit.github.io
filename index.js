@@ -11,6 +11,7 @@ btn_all[5].addEventListener("click",handleclick);
 btn_all[6].addEventListener("click",handleclick);
 
 function handleclick(){
+    buttonAnimation(this.innerHTML);
 
      if(this.innerHTML == "w"){
 
@@ -45,6 +46,7 @@ function handleclick(){
 
      document.addEventListener("keydown",function(event){
         makesound(event.key);
+        buttonAnimation(event.key);
 
      });
 
@@ -80,5 +82,14 @@ function handleclick(){
          }
     }
     
+    function buttonAnimation(key){
+        var activebutton = document.querySelector("."+ key);
+        activebutton.classList.add("pressed");
+
+        setTimeout(function(){
+            activebutton.classList.remove("pressed");
+        },100);
+    }
     
+
 }
